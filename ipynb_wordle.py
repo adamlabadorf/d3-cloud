@@ -2,7 +2,7 @@ from IPython.display import HTML, display
 VERSION = "0.1"
 
 wordles = 0
-def wordlize(words,width=600,height=600,title=None) :
+def wordle(words,width=600,height=600,title=None) :
     global wordles
     html = """
 <div id="wordle%(id)d"></div>
