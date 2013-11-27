@@ -2,8 +2,12 @@ from IPython.display import HTML, display
 VERSION = "0.1"
 
 wordles = 0
-def wordle(words,width=600,height=600,title=None) :
-    global wordles
+wordle_width=600
+wordle_height=600
+def wordle(words,width=None,height=None,title=None) :
+    global wordles, wordle_width, wordle_height
+    width = width or wordle_width
+    height = height or wordle_height
     html = """
 <div id="wordle%(id)d"></div>
 <script type="text/javascript">
@@ -134,7 +138,8 @@ def setup_wordle() :
             }
         </script>
         ipynb wordle setup, version %s<br/>
-        call like:<br/> <code>wordle(['list','of','words'],width=600,height=300,title="The Good Stuff")</code>"""%VERSION
+        call like:<br/> <code>wordle(['list','of','words'],width=600,height=300,title="The Good Stuff")</code><br/>
+        change defaults: <code>wordle_width=N</code>, <code>wordle_height=N</code>"""%VERSION
     display(HTML(html))
 
 setup_wordle()
