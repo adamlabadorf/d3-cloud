@@ -33,7 +33,7 @@ var intID_wordle%(id)d = window.setInterval(
     wordles += 1
     display(HTML(html))
 
-def setup_wordle() {
+def setup_wordle() :
     html = """
         <script>
         var exports = {};
