@@ -91,9 +91,11 @@ def setup_wordle() :
                 function draw(words) {
                     var svg = d3.select(opts.target).append("svg"),
                         title;
+
+                    // draw the background
                     svg.append("rect")
-                        .attr({"stroke":"black",
-                               "fill":"none",
+                        .attr({"stroke":"none",
+                               "fill":"white",
                                "width":width+"px",
                                "height":height+"px"
                             });
@@ -117,6 +119,7 @@ def setup_wordle() :
                         title.attr("transform",title_transf);
                     }
                     
+                    // draw the words
                     svg
                         .attr("width", width)
                         .attr("height", height)
@@ -134,6 +137,16 @@ def setup_wordle() :
                          })
                         .text(function(d) { return d.text; })
                         .on("mouseover",function(d) { console.log(d); });
+
+                    // draw the frame over everything
+                    svg.append("rect")
+                        .attr({"stroke":"black",
+                               "fill":"none",
+                               "width":width+"px",
+                               "height":height+"px"
+                            });
+
+
                 }
             }
         </script>
